@@ -30,15 +30,15 @@ export function Journey({ steps }: { steps: Step[] }) {
                 } ${st.year === "Next" ? "border-dashed" : ""}`}
               />
               <span className={`mt-3 font-serif text-lg transition-colors ${i === active ? "text-[#8a5a24]" : "text-slate-500 group-hover:text-[#1b2a4a]"}`}>{st.year}</span>
-              <span className="mt-1 hidden text-xs leading-snug text-slate-500 md:block">{st.title}</span>
+              {st.title && <span className="mt-1 hidden text-xs leading-snug text-slate-500 md:block">{st.title}</span>}
             </button>
           </li>
         ))}
       </ol>
       <div key={active} className="mt-10 rounded-2xl border border-[#e6e1d6] bg-white px-8 py-7 shadow-[0_1px_0_rgba(27,42,74,0.04)] [animation:fade-up_.5s_ease_both]">
         <p className="text-xs uppercase tracking-[0.2em] text-[#8a5a24]">{s.year}</p>
-        <h3 className="mt-2 font-serif text-3xl text-[#1b2a4a]">{s.title}</h3>
-        <p className="mt-3 max-w-2xl font-serif text-lg leading-relaxed text-slate-600">{s.text}</p>
+        {s.title && <h3 className="mt-2 font-serif text-3xl text-[#1b2a4a]">{s.title}</h3>}
+        {s.text && <p className="mt-3 max-w-2xl font-serif text-lg leading-relaxed text-slate-600">{s.text}</p>}
       </div>
     </div>
   );
