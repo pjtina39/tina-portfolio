@@ -4,21 +4,21 @@ export const metadata: Metadata = { title: "System design · Tina" };
 
 function Box({ title, sub, tone = "zinc" }: { title: string; sub?: string; tone?: "zinc" | "indigo" | "emerald" | "amber" }) {
   const tones = {
-    zinc: "border-stone-300 bg-white",
-    indigo: "border-stone-300 bg-[#f3ede4]",
-    emerald: "border-[#b4532a]/40 bg-[#fbf1ea]",
+    zinc: "border-[#d6cfc0] bg-white",
+    indigo: "border-[#c9d1e0] bg-[#eef1f6]",
+    emerald: "border-[#8a5a24]/40 bg-[#f6efe4]",
     amber: "border-amber-300 bg-amber-50",
   };
   return (
     <div className={`rounded-lg border px-4 py-3 text-center ${tones[tone]}`}>
-      <div className="text-sm font-medium text-stone-900">{title}</div>
-      {sub && <div className="mt-0.5 text-xs text-stone-500">{sub}</div>}
+      <div className="text-sm font-medium text-[#1b2a4a]">{title}</div>
+      {sub && <div className="mt-0.5 text-xs text-slate-500">{sub}</div>}
     </div>
   );
 }
 
 const Arrow = ({ label }: { label?: string }) => (
-  <div className="flex flex-col items-center justify-center px-1 text-stone-500">
+  <div className="flex flex-col items-center justify-center px-1 text-slate-500">
     <span className="text-lg leading-none">→</span>
     {label && <span className="text-[10px]">{label}</span>}
   </div>
@@ -69,15 +69,15 @@ export default function ArchitecturePage() {
   return (
     <div className="space-y-14">
       <section>
-        <h1 className="font-serif text-5xl tracking-tight text-stone-900">System design</h1>
-        <p className="mt-3 max-w-2xl text-stone-600">
+        <h1 className="font-serif text-5xl tracking-tight text-[#1b2a4a]">System design</h1>
+        <p className="mt-3 max-w-2xl text-slate-600">
           One knowledge base, two consumers: this public portfolio and a private career agent. This page
           shows how the pieces fit, how code reaches production, and the trade-offs behind each choice.
         </p>
       </section>
 
       <section>
-        <h2 className="font-serif text-2xl text-stone-900">1. Architecture</h2>
+        <h2 className="font-serif text-2xl text-[#1b2a4a]">1. Architecture</h2>
         <div className="mt-6 grid items-stretch gap-2 md:grid-cols-[1fr_auto_1fr_auto_1fr]">
           <div className="space-y-2">
             <Box title="Career knowledge base" sub="profile.json: roles, projects, skills, evidence" tone="indigo" />
@@ -95,7 +95,7 @@ export default function ArchitecturePage() {
           </div>
         </div>
 
-        <h3 className="mt-10 font-serif text-xl text-stone-900">Match request flow</h3>
+        <h3 className="mt-10 font-serif text-xl text-[#1b2a4a]">Match request flow</h3>
         <div className="mt-4 grid gap-2 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr]">
           <Box title="1. Extract requirements" sub="split ad, detect skills, must vs nice" />
           <Arrow />
@@ -108,13 +108,13 @@ export default function ArchitecturePage() {
       </section>
 
       <section>
-        <h2 className="font-serif text-2xl text-stone-900">2. CI/CD: how a change reaches production</h2>
+        <h2 className="font-serif text-2xl text-[#1b2a4a]">2. CI/CD: how a change reaches production</h2>
         <div className="mt-6 grid gap-2 md:grid-cols-6">
           {pipeline.map((p, i) => (
             <Box key={p.title} title={p.title} sub={p.sub} tone={i === 2 ? "indigo" : i === 5 ? "emerald" : "zinc"} />
           ))}
         </div>
-        <ul className="mt-6 max-w-3xl list-disc space-y-1 pl-5 text-sm text-stone-700">
+        <ul className="mt-6 max-w-3xl list-disc space-y-1 pl-5 text-sm text-slate-700">
           <li><b>GitHub Actions</b> runs lint, type check, unit tests and a production build on every pull request. A red check blocks the merge.</li>
           <li><b>Vercel&apos;s GitHub integration</b> builds a preview deployment for every pull request, so a change can be clicked before it ships.</li>
           <li>Merging to <code>main</code> triggers the production deploy. Each deploy is immutable, so rollback is one click to the previous build.</li>
@@ -123,25 +123,25 @@ export default function ArchitecturePage() {
       </section>
 
       <section>
-        <h2 className="font-serif text-2xl text-stone-900">3. Design decisions and trade-offs</h2>
+        <h2 className="font-serif text-2xl text-[#1b2a4a]">3. Design decisions and trade-offs</h2>
         <div className="mt-6 space-y-4">
           {decisions.map((d) => (
-            <details key={d.q} className="rounded-lg border border-stone-200 bg-white p-4" open>
-              <summary className="cursor-pointer font-medium text-stone-900">{d.q}</summary>
-              <p className="mt-2 text-sm leading-relaxed text-stone-700">{d.a}</p>
+            <details key={d.q} className="rounded-lg border border-[#e6e1d6] bg-white p-4" open>
+              <summary className="cursor-pointer font-medium text-[#1b2a4a]">{d.q}</summary>
+              <p className="mt-2 text-sm leading-relaxed text-slate-700">{d.a}</p>
             </details>
           ))}
         </div>
       </section>
 
       <section>
-        <h2 className="font-serif text-2xl text-stone-900">4. Scaling path</h2>
+        <h2 className="font-serif text-2xl text-[#1b2a4a]">4. Scaling path</h2>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full text-left text-sm">
-            <thead className="text-stone-500">
+            <thead className="text-slate-500">
               <tr><th className="py-2 pr-4 font-medium">When</th><th className="py-2 pr-4 font-medium">Change</th></tr>
             </thead>
-            <tbody className="divide-y divide-stone-200">
+            <tbody className="divide-y divide-[#e6e1d6]">
               <tr><td className="py-2 pr-4">Agent stores jobs and labels</td><td className="py-2">Postgres (e.g. Neon or Supabase) with pgvector for embeddings</td></tr>
               <tr><td className="py-2 pr-4">LLM calls add latency and cost</td><td className="py-2">Cache results by job-ad hash; stream responses; rate-limit the public endpoint</td></tr>
               <tr><td className="py-2 pr-4">Job discovery runs on a schedule</td><td className="py-2">Vercel Cron or a queue worker (Python) that pulls from job APIs and writes to the database</td></tr>
@@ -153,13 +153,13 @@ export default function ArchitecturePage() {
       </section>
 
       <section>
-        <h2 className="font-serif text-2xl text-stone-900">5. Roadmap</h2>
+        <h2 className="font-serif text-2xl text-[#1b2a4a]">5. Roadmap</h2>
         <ol className="mt-4 space-y-2 text-sm">
           {roadmap.map(([n, t, s]) => (
             <li key={n} className="flex gap-3">
-              <span className="w-16 shrink-0 text-stone-500">Phase {n}</span>
+              <span className="w-16 shrink-0 text-slate-500">Phase {n}</span>
               <span className="flex-1">{t}</span>
-              <span className={s.startsWith("done") ? "text-[#b4532a]" : "text-stone-500"}>{s}</span>
+              <span className={s.startsWith("done") ? "text-[#8a5a24]" : "text-slate-500"}>{s}</span>
             </li>
           ))}
         </ol>
