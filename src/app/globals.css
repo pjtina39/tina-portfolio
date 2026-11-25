@@ -13,3 +13,35 @@ html {
 body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+/* ---------- motion ---------- */
+@keyframes flow {
+  to { stroke-dashoffset: -40; }
+}
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(3px, -4px); }
+}
+@keyframes pulse-ring {
+  0% { r: 10; opacity: 0.6; }
+  100% { r: 34; opacity: 0; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.flow { stroke-dasharray: 4 6; animation: flow 2.4s linear infinite; }
+.drift { animation: drift 6s ease-in-out infinite; transform-box: fill-box; }
+.pulse { animation: pulse-ring 2.6s ease-out infinite; }
+.hero-in > * { animation: fade-up 0.8s cubic-bezier(.2,.7,.2,1) both; }
+.hero-in > *:nth-child(2) { animation-delay: .08s; }
+.hero-in > *:nth-child(3) { animation-delay: .16s; }
+.hero-in > *:nth-child(4) { animation-delay: .24s; }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .flow, .drift, .pulse, .hero-in > * { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

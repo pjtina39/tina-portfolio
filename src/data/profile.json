@@ -2,20 +2,64 @@
   "name": "Tina Zeng",
   "headline": "Applied AI Researcher · LLM evaluation, entity resolution and retrieval",
   "tagline": "I turn manual operations into measured, production LLM pipelines.",
+  "intro": "I build LLM pipelines for work I used to do by hand, and I measure them on quality, cost and reliability.",
   "location": "London, UK",
   "summary": "Applied AI researcher with a BSc in Mathematics. I started in operations and product analytics, taught myself analytics engineering, and now build and evaluate LLM pipelines that run in production. I've been the operator who did the work by hand, so I build AI for how the work is actually done, and I measure it on quality, cost and reliability.",
   "metrics": [
     {
-      "value": "6.5 days → minutes",
-      "label": "to match 1,000 companies"
+      "value": "6.5 days",
+      "to": "minutes",
+      "label": "to match 1,000 companies to a database"
     },
     {
       "value": "94–97%",
       "label": "agreement with human annotators"
     },
     {
+      "value": "1,350",
+      "to": "3.7 hrs",
+      "label": "of research work a month, automated"
+    },
+    {
       "value": "−97%",
-      "label": "entity research unit cost"
+      "label": "cost per entity researched"
+    }
+  ],
+  "journey": [
+    {
+      "year": "2015",
+      "title": "BSc Mathematics, UCL",
+      "text": "The foundation: statistics, proof and a habit of asking how we know something is true."
+    },
+    {
+      "year": "2017",
+      "title": "Business Executive",
+      "text": "Built an overseas operations team from scratch and closed partnerships worth £700k in letters of intent."
+    },
+    {
+      "year": "2019",
+      "title": "Product & growth analytics",
+      "text": "At a London startup: SQL dashboards, user personas and A/B tests that doubled organic traffic in a month."
+    },
+    {
+      "year": "2022",
+      "title": "Technical Product Analyst",
+      "text": "Joined Signal AI in operations. Ran entity training for enterprise clients and led a supplier transition that cut costs 28% and lifted quality 18%."
+    },
+    {
+      "year": "2023",
+      "title": "Self-taught engineer",
+      "text": "Learned dbt, Git and Python on the job and shipped reviewed changes to production data models."
+    },
+    {
+      "year": "2025",
+      "title": "Associate AI Researcher",
+      "text": "Built and evaluated LLM pipelines in production: entity resolution at 94–97% agreement, research costs down 97%."
+    },
+    {
+      "year": "Next",
+      "title": "Forward Deployed Engineer",
+      "text": "Taking it to clients: sitting with the people who do the work, then designing, building and deploying the AI that changes it."
     }
   ],
   "links": [

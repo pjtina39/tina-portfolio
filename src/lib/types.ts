@@ -8,7 +8,9 @@ export interface Profile {
   name: string;
   headline: string;
   tagline?: string;
-  metrics?: { value: string; label: string }[];
+  intro?: string;
+  metrics?: { value: string; to?: string; label: string }[];
+  journey?: { year: string; title: string; text: string }[];
   location: string;
   summary: string;
   links: { label: string; url: string }[];

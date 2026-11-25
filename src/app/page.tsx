@@ -2,15 +2,21 @@ import Link from "next/link";
 import profileJson from "@/data/profile.json";
 import { SKILL_LABEL } from "@/lib/taxonomy";
 import type { Highlight, Profile } from "@/lib/types";
+import { HeroVisual } from "@/components/HeroVisual";
+import { Journey } from "@/components/Journey";
+import { MatchPreview } from "@/components/MatchPreview";
+import { Reveal } from "@/components/Reveal";
 
 const profile = profileJson as Profile;
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="grid gap-6 border-t border-[#e6e1d6] pt-12 md:grid-cols-[200px_1fr] md:gap-12">
-      <h2 className="font-serif text-3xl text-[#1b2a4a]">{title}</h2>
-      <div>{children}</div>
-    </section>
+    <Reveal>
+      <section className="grid gap-6 border-t border-[#e6e1d6] pt-12 md:grid-cols-[200px_1fr] md:gap-12">
+        <h2 className="font-serif text-3xl text-[#1b2a4a]">{title}</h2>
+        <div>{children}</div>
+      </section>
+    </Reveal>
   );
 }
 
@@ -32,9 +38,9 @@ function Highlights({ items }: { items: Highlight[] }) {
 export default function Home() {
   const byLevel = (lvl: string) => profile.skills.filter((s) => s.level === lvl);
   return (
-    <div className="space-y-20">
-      <section className="grid gap-12 pt-6 md:grid-cols-[1.5fr_1fr] md:items-end">
-        <div>
+    <div className="space-y-28">
+      <section className="grid items-center gap-10 md:grid-cols-[1.25fr_1fr]">
+        <div className="hero-in">
           <p className="text-xs uppercase tracking-[0.25em] text-[#8a5a24]">
             {profile.headline.split("·")[0].trim()}
             {profile.location && ` · ${profile.location.split(",")[0]}`}
@@ -44,14 +50,16 @@ export default function Home() {
             <br />
             to <em className="text-[#8a5a24]">production AI</em>.
           </h1>
-          <p className="mt-8 max-w-xl font-serif text-xl leading-relaxed text-slate-600">{profile.summary}</p>
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm">
-            <Link href="/match" className="border-b-2 border-[#8a5a24] pb-1 text-[#1b2a4a] hover:text-[#8a5a24]">
+          <p className="mt-8 max-w-lg font-serif text-xl leading-relaxed text-slate-600">{profile.intro ?? profile.summary}</p>
+          <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
+            <Link href="/match" className="rounded-full bg-[#1b2a4a] px-6 py-3 font-medium text-[#f8f6f1] transition hover:-translate-y-0.5 hover:bg-[#2a3d66]">
               Try the job-match demo
             </Link>
             <Link href="/architecture" className="border-b-2 border-[#8a5a24] pb-1 text-[#1b2a4a] hover:text-[#8a5a24]">
               Read the system design
             </Link>
+          </div>
+          <div className="mt-6 flex gap-5 text-sm">
             {profile.links.map((l) => (
               <a key={l.url} href={l.url} className="text-slate-500 hover:text-[#1b2a4a]">
                 {l.label} ↗
@@ -59,17 +67,50 @@ export default function Home() {
             ))}
           </div>
         </div>
-        {profile.metrics && (
-          <dl className="space-y-6 border-l border-[#d6cfc0] pl-8">
-            {profile.metrics.map((m) => (
-              <div key={m.value}>
-                <dt className="font-serif text-3xl text-[#1b2a4a]">{m.value}</dt>
-                <dd className="mt-1 text-sm text-slate-500">{m.label}</dd>
-              </div>
+        <div className="hero-in">
+          <HeroVisual />
+        </div>
+      </section>
+
+      {profile.metrics && (
+        <section className="relative left-1/2 w-screen -translate-x-1/2 bg-[#1b2a4a] text-[#f8f6f1]">
+          <dl className="mx-auto grid max-w-5xl grid-cols-2 gap-y-12 px-6 py-16 md:grid-cols-4">
+            {profile.metrics.map((m, i) => (
+              <Reveal key={m.label} className={i > 0 ? "md:border-l md:border-white/15 md:pl-8" : ""}>
+                <dt className="font-serif text-5xl leading-none tracking-tight">
+                  {m.value}
+                  {m.to && (
+                    <span className="block text-2xl italic text-[#d9b98a]">→ {m.to}</span>
+                  )}
+                </dt>
+                <dd className="mt-4 max-w-[14rem] text-sm leading-snug text-slate-300">{m.label}</dd>
+              </Reveal>
             ))}
           </dl>
-        )}
-      </section>
+        </section>
+      )}
+
+      {profile.journey && (
+        <Reveal>
+          <section>
+            <p className="text-xs uppercase tracking-[0.25em] text-[#8a5a24]">The journey</p>
+            <h2 className="mt-3 font-serif text-4xl text-[#1b2a4a]">
+              I&apos;ve been the operator, the analyst <em className="text-[#8a5a24]">and</em> the engineer.
+            </h2>
+            <div className="mt-12">
+              <Journey steps={profile.journey} />
+            </div>
+          </section>
+        </Reveal>
+      )}
+
+      <Reveal>
+        <section>
+          <p className="text-xs uppercase tracking-[0.25em] text-[#8a5a24]">Built for this interview</p>
+          <h2 className="mt-3 mb-10 font-serif text-4xl text-[#1b2a4a]">How well do I fit a role? Ask the system.</h2>
+          <MatchPreview />
+        </section>
+      </Reveal>
 
       <Section title="Experience">
         <ol className="space-y-14">
