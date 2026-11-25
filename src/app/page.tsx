@@ -83,6 +83,31 @@ export default function Home() {
         </div>
       </section>
 
+      {profile.education && (
+        <section className="grid gap-8 md:grid-cols-2">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight">Education</h2>
+            <ul className="mt-4 space-y-3">
+              {profile.education.map((e) => (
+                <li key={e.school}>
+                  <p className="font-medium">{e.degree}</p>
+                  <p className="text-sm text-zinc-500">{e.school} · {e.years}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight">Certifications</h2>
+            <ul className="mt-4 list-disc space-y-1 pl-5 text-sm text-zinc-700">
+              {profile.certifications?.map((c) => <li key={c}>{c}</li>)}
+            </ul>
+            {profile.languages && (
+              <p className="mt-4 text-sm text-zinc-600">Languages: {profile.languages.join(", ")}</p>
+            )}
+          </div>
+        </section>
+      )}
+
       <section>
         <h2 className="text-2xl font-semibold tracking-tight">Skills</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">

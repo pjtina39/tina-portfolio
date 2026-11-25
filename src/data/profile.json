@@ -1,211 +1,94 @@
 {
-  "name": "Tina",
-  "headline": "AI Researcher → Forward Deployed Engineer · LLM pipelines, retrieval and evaluation",
-  "location": "",
-  "summary": "I started in operations, training entity models for enterprise clients, taught myself analytics engineering, and moved into AI research, where I built LLM pipelines that replaced days of manual work with minutes of automated, measured output. I've been the operator who did the work by hand, so I build AI for how the work is actually done, and I prove it with numbers the business cares about.",
+  "name": "Tina Zeng",
+  "headline": "Applied AI Researcher · LLM evaluation, entity resolution and retrieval",
+  "location": "London, UK",
+  "summary": "Applied AI researcher with a BSc in Mathematics. I started in operations and product analytics, taught myself analytics engineering, and now build and evaluate LLM pipelines that run in production. I've been the operator who did the work by hand, so I build AI for how the work is actually done, and I measure it on quality, cost and reliability.",
   "links": [
-    {
-      "label": "GitHub",
-      "url": "https://github.com/pjtina39"
-    }
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/tina-zeng" },
+    { "label": "GitHub", "url": "https://github.com/pjtina39" }
   ],
   "skills": [
-    {
-      "id": "llm",
-      "level": "expert"
-    },
-    {
-      "id": "prompting",
-      "level": "expert"
-    },
-    {
-      "id": "evaluation",
-      "level": "expert"
-    },
-    {
-      "id": "operations",
-      "level": "expert"
-    },
-    {
-      "id": "client-facing",
-      "level": "expert"
-    },
-    {
-      "id": "python",
-      "level": "strong"
-    },
-    {
-      "id": "sql",
-      "level": "strong"
-    },
-    {
-      "id": "data-pipelines",
-      "level": "strong"
-    },
-    {
-      "id": "rag",
-      "level": "strong"
-    },
-    {
-      "id": "nlp",
-      "level": "strong"
-    },
-    {
-      "id": "classification",
-      "level": "strong"
-    },
-    {
-      "id": "data-analysis",
-      "level": "strong"
-    },
-    {
-      "id": "communication",
-      "level": "strong"
-    },
-    {
-      "id": "product",
-      "level": "strong"
-    },
-    {
-      "id": "ml",
-      "level": "working"
-    },
-    {
-      "id": "ranking",
-      "level": "working"
-    },
-    {
-      "id": "typescript",
-      "level": "working"
-    },
-    {
-      "id": "react",
-      "level": "working"
-    },
-    {
-      "id": "cicd",
-      "level": "working"
-    },
-    {
-      "id": "system-design",
-      "level": "working"
-    },
-    {
-      "id": "agents",
-      "level": "working"
-    }
+    { "id": "evaluation", "level": "expert" },
+    { "id": "llm", "level": "expert" },
+    { "id": "prompting", "level": "expert" },
+    { "id": "nlp", "level": "expert" },
+    { "id": "sql", "level": "expert" },
+    { "id": "data-analysis", "level": "expert" },
+    { "id": "python", "level": "strong" },
+    { "id": "data-pipelines", "level": "strong" },
+    { "id": "classification", "level": "strong" },
+    { "id": "rag", "level": "strong" },
+    { "id": "operations", "level": "strong" },
+    { "id": "client-facing", "level": "strong" },
+    { "id": "communication", "level": "strong" },
+    { "id": "product", "level": "strong" },
+    { "id": "cloud", "level": "working" },
+    { "id": "ml", "level": "working" },
+    { "id": "agile", "level": "working" },
+    { "id": "typescript", "level": "working" },
+    { "id": "react", "level": "working" },
+    { "id": "cicd", "level": "working" },
+    { "id": "system-design", "level": "working" },
+    { "id": "agents", "level": "working" }
   ],
   "roles": [
     {
       "id": "ai-researcher",
-      "title": "AI Researcher, Retrieval Engine",
+      "title": "Associate AI Researcher",
       "org": "Signal AI",
-      "start": "Mar 2025",
-      "end": "2026",
-      "summary": "Moved from operations into the AI Research team to build LLM pipelines for entity alignment and retrieval.",
+      "start": "Jun 2025",
+      "end": "Present",
+      "summary": "Rigorous experiments on production questions: testing retrieval components and new models under production-realistic conditions to inform engineering decisions on quality, cost and feasibility.",
       "highlights": [
-        {
-          "text": "Built an LLM entity-alignment pipeline that replaced a manual process taking 6.5 days per 1,000 entities: it now aligns 5,000 entities in under 30 minutes at about $0.0005 per entity.",
-          "skills": [
-            "llm",
-            "prompting",
-            "nlp",
-            "data-pipelines",
-            "python",
-            "operations"
-          ]
-        },
-        {
-          "text": "Evaluated the pipeline against an external expert-labelling vendor's labels and reached 94.5% to 97% agreement.",
-          "skills": [
-            "evaluation",
-            "classification",
-            "llm"
-          ]
-        },
-        {
-          "text": "Automated entity trigger-word generation, cutting the work from 1,350 hours to 3.7 hours a month and the cost from about £6k to under $2 a month.",
-          "skills": [
-            "llm",
-            "operations",
-            "data-pipelines",
-            "agents"
-          ]
-        },
-        {
-          "text": "Demoed both pipelines to product, engineering and operations stakeholders.",
-          "skills": [
-            "communication",
-            "client-facing",
-            "product"
-          ]
-        },
-        {
-          "text": "Took part in real-world evaluation of the next-generation entity retrieval technology, a contribution recognised by the Retrieval Engine team.",
-          "skills": [
-            "rag",
-            "evaluation"
-          ]
-        }
+        { "text": "Led an AI-powered entity-resolution pipeline matching client company lists to an internal database with 94–97% agreement with human annotators, cutting manual matching from 6.5 days per 1,000 companies to minutes (5,000 entities in under 30 minutes, about $0.0005 per entity).", "skills": ["llm", "nlp", "rag", "evaluation", "data-pipelines", "python", "client-facing"] },
+        { "text": "Analysed a production NER model and optimised prediction rules in its inference workflow, reducing processing costs by 13% while maintaining model quality.", "skills": ["nlp", "ml", "evaluation", "operations"] },
+        { "text": "Co-developed reproducible ML evaluation workflows on AWS Bedrock with DVC-versioned datasets, supporting systematic benchmarking that informed the choice of production LLM.", "skills": ["evaluation", "cloud", "llm", "python", "data-pipelines"] },
+        { "text": "Ran comparative evaluations of LLMs and an emerging decision model on classification performance, model agreement, run-to-run consistency, prompt sensitivity and inference cost, to inform production model selection.", "skills": ["evaluation", "classification", "llm", "prompting"] },
+        { "text": "Evaluated chunk-level vs full-document LLM classification on a large dataset, reaching Cohen's kappa of 0.90 and identifying a potential 25% cut in processing costs.", "skills": ["evaluation", "classification", "llm", "data-analysis", "system-design"] },
+        { "text": "Built LLM web-search workflows for entity research, cutting research unit costs by 97% and turnaround from hours to minutes, and automating trigger-word discovery with over 90% coverage of expert keywords (1,350 hours of work a month down to 3.7).", "skills": ["agents", "llm", "operations", "data-pipelines"] },
+        { "text": "Optimised client-specific LLM classification prompts through error analysis and iterative evaluation, improving alignment with client requirements and helping reduce churn risk on an enterprise account worth over $800k.", "skills": ["prompting", "evaluation", "client-facing", "classification"] }
       ]
     },
     {
-      "id": "concept-ops",
-      "title": "Technical Product Analyst, Concept Operations",
+      "id": "product-analyst",
+      "title": "Senior Technical Product Analyst",
       "org": "Signal AI",
       "start": "Jan 2022",
-      "end": "Feb 2025",
-      "summary": "Owned entity training for enterprise clients and taught myself analytics engineering along the way.",
+      "end": "Jun 2025",
+      "summary": "Owned analytics, operational strategy and product improvements for AI/NLP data workflows, partnering with engineering, data science and operations.",
       "highlights": [
-        {
-          "text": "Led entity training for a major enterprise client: 3,266 entities in scope, 2,155 trained, 47.9% more trained during the prioritisation period and 4,248 entities through the bulk entity-creation pipeline.",
-          "skills": [
-            "client-facing",
-            "operations",
-            "nlp",
-            "product"
-          ]
-        },
-        {
-          "text": "Ran bulk entity requests for enterprise clients and wrote the training-process overview, vendor alignment instructions, entity tracker and bulk-request templates; several were still in use three years later.",
-          "skills": [
-            "operations",
-            "client-facing",
-            "communication"
-          ]
-        },
-        {
-          "text": "Taught myself dbt, Git and SQL, then shipped reviewed changes to the company's dbt analytics models (Salesforce cases, concepts and Jira issues).",
-          "skills": [
-            "sql",
-            "data-pipelines",
-            "cicd"
-          ]
-        },
-        {
-          "text": "Set up a parallel Jira workflow to migrate topic labelling to a new external labelling provider without disrupting delivery.",
-          "skills": [
-            "operations",
-            "product"
-          ]
-        },
-        {
-          "text": "Built the cost analysis for the Entities 2.0 programme for leadership, and proposed time-in-status tracking for social-author operations.",
-          "skills": [
-            "data-analysis",
-            "communication",
-            "product"
-          ]
-        },
-        {
-          "text": "Worked on a LightGBM churn-prediction model and fixed the Salesforce churn fields it depended on.",
-          "skills": [
-            "ml",
-            "python",
-            "classification",
-            "data-analysis"
-          ]
-        }
+        { "text": "Taught myself dbt and Git, then enhanced the SQL/dbt data models behind AI product requirements, enabling model-training quality evaluation, feature testing and analysis of resolution times, bottlenecks and supplier performance.", "skills": ["sql", "data-pipelines", "cicd", "data-analysis"] },
+        { "text": "Led an end-to-end data-annotation supplier transition, defining performance measures, quality standards and SLAs: monthly operational costs down 28% and quality up 18%.", "skills": ["operations", "product", "evaluation", "client-facing"] },
+        { "text": "Led entity training for a major enterprise client: 3,266 entities in scope, 2,155 trained and 47.9% more trained during the prioritisation period.", "skills": ["client-facing", "nlp", "operations"] },
+        { "text": "Tested and evaluated NLP models for entity recognition and risk-event classification in Python with data science and engineering, including new product functionality.", "skills": ["nlp", "classification", "evaluation", "python"] },
+        { "text": "Analysed operational OKRs in SQL and Metabase and delivered monthly insights to senior leadership for product and resource planning; built forecast models that saved £7.3k, with £60k projected annually.", "skills": ["sql", "data-analysis", "communication"] },
+        { "text": "Combined product metrics, user feedback and operational analysis to drive three cross-functional product enhancements, and supported post-acquisition team integration with workflow improvements.", "skills": ["product", "data-analysis", "operations", "communication"] },
+        { "text": "Worked on a LightGBM churn-prediction model and fixed the Salesforce churn fields it depended on.", "skills": ["ml", "python", "classification"] }
+      ]
+    },
+    {
+      "id": "perfocal",
+      "title": "Marketing Manager and Product Associate",
+      "org": "Perfocal",
+      "start": "Jan 2019",
+      "end": "Dec 2021",
+      "summary": "Product and customer analytics at a London startup.",
+      "highlights": [
+        { "text": "Built user-persona dashboards from SQL and Metabase customer analytics to inform product strategy.", "skills": ["sql", "data-analysis", "product"] },
+        { "text": "Doubled organic traffic within one month through A/B testing and SEO experiments.", "skills": ["evaluation", "data-analysis"] },
+        { "text": "Supported commercial development through acquisition analysis and lead generation, securing a £9.7k B2B deal.", "skills": ["client-facing", "communication"] }
+      ]
+    },
+    {
+      "id": "horizon",
+      "title": "Business Executive",
+      "org": "Horizon Strategic Partners",
+      "start": "Oct 2017",
+      "end": "Dec 2018",
+      "summary": "Business development and operations.",
+      "highlights": [
+        { "text": "Set up and managed an overseas operations team.", "skills": ["operations"] },
+        { "text": "Forged strategic partnerships that delivered two letters of intent worth £700k in total.", "skills": ["client-facing", "communication"] }
       ]
     }
   ],
@@ -216,36 +99,16 @@
       "summary": "A shared career knowledge base that powers both this portfolio and an AI job-match engine, deployed with CI/CD on Vercel.",
       "url": "/architecture",
       "highlights": [
-        {
-          "text": "Designed a modular system: one structured knowledge base feeds a public portfolio and a matching API, with private data kept out of the public repo.",
-          "skills": [
-            "system-design",
-            "product",
-            "security"
-          ]
-        },
-        {
-          "text": "Built the site and a serverless match API in Next.js and TypeScript, deployed on Vercel with GitHub Actions running lint, type checks, tests and a build on every pull request.",
-          "skills": [
-            "typescript",
-            "react",
-            "apis",
-            "cicd",
-            "full-stack",
-            "cloud"
-          ]
-        },
-        {
-          "text": "Implemented explainable job matching: requirement extraction, evidence retrieval and weighted scoring, with a yes/no labelling loop to collect training data for a future classifier.",
-          "skills": [
-            "rag",
-            "ranking",
-            "classification",
-            "evaluation",
-            "agents"
-          ]
-        }
+        { "text": "Designed a modular system: one structured knowledge base feeds a public portfolio and a matching API, with private data kept out of the public repo.", "skills": ["system-design", "product", "security"] },
+        { "text": "Built the site and a serverless match API in Next.js and TypeScript, deployed on Vercel with GitHub Actions running lint, type checks, tests and a build on every pull request.", "skills": ["typescript", "react", "apis", "cicd", "full-stack", "cloud"] },
+        { "text": "Implemented explainable job matching: requirement extraction, evidence retrieval and weighted scoring, with a yes/no labelling loop to collect training data for a future classifier.", "skills": ["rag", "ranking", "classification", "evaluation", "agents"] }
       ]
     }
-  ]
+  ],
+  "education": [
+    { "school": "University College London", "degree": "BSc Mathematics", "years": "2011–2015" },
+    { "school": "Loughborough University London", "degree": "MSc Entrepreneurship and Innovation Management", "years": "2015–2016" }
+  ],
+  "certifications": ["Machine Learning Specialisation (DeepLearning.AI)", "dbt Fundamentals", "Python Data Analysis", "Power BI", "CFA Level I (passed)", "Agile Project Management"],
+  "languages": ["English (fluent)", "Mandarin Chinese (native)"]
 }

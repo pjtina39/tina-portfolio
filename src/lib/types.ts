@@ -15,6 +15,9 @@ export interface Profile {
   skills: { id: SkillId; level: "expert" | "strong" | "working" }[];
   roles: Role[];
   projects: Project[];
+  education?: { school: string; degree: string; years: string }[];
+  certifications?: string[];
+  languages?: string[];
 }
 
 export interface Role {
