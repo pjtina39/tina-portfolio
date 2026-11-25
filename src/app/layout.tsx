@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Portfolio and career intelligence platform: experience, projects and a live AI job-match demo.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col overflow-x-clip bg-[#f8f6f1] text-slate-800">

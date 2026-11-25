@@ -1,28 +1,16 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
 import profile from "@/data/profile.json";
 import { matchJob } from "@/lib/matcher";
 import { SAMPLE_JOB } from "@/lib/sample-job";
 import type { Profile } from "@/lib/types";
 
-/** Runs the real match engine on the sample ad, in the browser, and animates the result. */
+/**
+ * Runs the real match engine on the sample ad. It is a server component, so the
+ * score is computed once at build time; the count-up and ring animations are
+ * pure CSS (see .score-count and .score-ring in globals.css), with no effects.
+ */
 export function MatchPreview() {
-  const result = useMemo(() => matchJob(SAMPLE_JOB, profile as Profile), []);
-  const [shown, setShown] = useState(0);
-
-  useEffect(() => {
-    let raf = 0;
-    const start = performance.now();
-    const tick = (t: number) => {
-      const p = Math.min(1, (t - start) / 1400);
-      setShown(Math.round(result.score * (1 - Math.pow(1 - p, 3))));
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [result.score]);
+  const result = matchJob(SAMPLE_JOB, profile as Profile);
 
   const top = result.matches.filter((m) => m.priority === "must").slice(0, 8);
   const circ = 2 * Math.PI * 52;
@@ -32,15 +20,18 @@ export function MatchPreview() {
       <div className="flex flex-col items-center justify-center">
         <svg viewBox="0 0 120 120" className="h-44 w-44 -rotate-90">
           <circle cx="60" cy="60" r="52" fill="none" stroke="#efebe2" strokeWidth="6" />
-          <circle cx="60" cy="60" r="52" fill="none" stroke="#8a5a24" strokeWidth="6" strokeLinecap="round" strokeDasharray={circ} strokeDashoffset={circ * (1 - shown / 100)} />
+          <circle cx="60" cy="60" r="52" fill="none" stroke="#8a5a24" strokeWidth="6" strokeLinecap="round" strokeDasharray={circ}
+            className="score-ring"
+            style={{ "--ring-from": circ, "--ring-to": circ * (1 - result.score / 100) } as React.CSSProperties}
+          />
         </svg>
         <div className="-mt-[118px] mb-[62px] text-center">
-          <div className="font-serif text-5xl text-[#1b2a4a] tabular-nums">{shown}</div>
+          <div className="score-count font-serif text-5xl text-[#1b2a4a] tabular-nums" style={{ "--score": result.score } as React.CSSProperties} aria-label={`Fit score ${result.score}`} />
           <div className="text-xs uppercase tracking-[0.2em] text-slate-500">fit score</div>
         </div>
               </div>
       <div>
-        <p className="text-xs uppercase tracking-[0.2em] text-[#8a5a24]">Live, running in your browser</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-[#8a5a24]">Live result from the real engine</p>
         <h3 className="mt-2 font-serif text-3xl text-[#1b2a4a]">Scored against a sample FDE job ad.</h3>
         <ul className="mt-6 flex flex-wrap gap-2">
           {top.map((m) => (
