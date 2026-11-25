@@ -5,19 +5,24 @@ import type { Highlight, Profile } from "@/lib/types";
 
 const profile = profileJson as Profile;
 
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="grid gap-6 border-t border-stone-200 pt-12 md:grid-cols-[200px_1fr] md:gap-12">
+      <h2 className="font-serif text-3xl text-stone-900">{title}</h2>
+      <div>{children}</div>
+    </section>
+  );
+}
+
 function Highlights({ items }: { items: Highlight[] }) {
   return (
-    <ul className="mt-3 space-y-2">
+    <ul className="mt-5 space-y-4">
       {items.map((h) => (
-        <li key={h.text} className="text-sm text-zinc-700">
-          <p>{h.text}</p>
-          <div className="mt-1 flex flex-wrap gap-1">
-            {h.skills.map((s) => (
-              <span key={s} className="rounded bg-zinc-100 px-1.5 py-0.5 text-[11px] text-zinc-600">
-                {SKILL_LABEL[s] ?? s}
-              </span>
-            ))}
-          </div>
+        <li key={h.text}>
+          <p className="leading-relaxed text-stone-700">{h.text}</p>
+          <p className="mt-1 text-[11px] uppercase tracking-[0.12em] text-stone-400">
+            {h.skills.map((s) => SKILL_LABEL[s] ?? s).join(" · ")}
+          </p>
         </li>
       ))}
     </ul>
@@ -27,104 +32,123 @@ function Highlights({ items }: { items: Highlight[] }) {
 export default function Home() {
   const byLevel = (lvl: string) => profile.skills.filter((s) => s.level === lvl);
   return (
-    <div className="space-y-16">
-      <section>
-        {profile.location && <p className="text-sm font-medium text-indigo-600">{profile.location}</p>}
-        <h1 className="mt-2 text-4xl font-semibold tracking-tight">{profile.name}</h1>
-        <p className="mt-2 text-xl text-zinc-600">{profile.headline}</p>
-        <p className="mt-6 max-w-2xl leading-relaxed text-zinc-700">{profile.summary}</p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/match" className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700">
-            Try the job-match demo
-          </Link>
-          <Link href="/architecture" className="rounded-md border border-zinc-300 bg-white px-4 py-2 text-sm font-medium hover:bg-zinc-100">
-            See the system design
-          </Link>
-          {profile.links.map((l) => (
-            <a key={l.url} href={l.url} className="px-2 py-2 text-sm text-zinc-600 underline-offset-4 hover:underline">
-              {l.label}
-            </a>
-          ))}
+    <div className="space-y-20">
+      <section className="grid gap-12 pt-6 md:grid-cols-[1.5fr_1fr] md:items-end">
+        <div>
+          <p className="text-xs uppercase tracking-[0.25em] text-[#b4532a]">
+            {profile.headline.split("·")[0].trim()}
+            {profile.location && ` · ${profile.location.split(",")[0]}`}
+          </p>
+          <h1 className="mt-6 font-serif text-6xl leading-[1.02] tracking-tight text-stone-900 md:text-7xl">
+            From operations
+            <br />
+            to <em className="text-[#b4532a]">production AI</em>.
+          </h1>
+          <p className="mt-8 max-w-xl font-serif text-xl leading-relaxed text-stone-600">{profile.summary}</p>
+          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm">
+            <Link href="/match" className="border-b-2 border-[#b4532a] pb-1 text-stone-900 hover:text-[#b4532a]">
+              Try the job-match demo
+            </Link>
+            <Link href="/architecture" className="border-b-2 border-[#b4532a] pb-1 text-stone-900 hover:text-[#b4532a]">
+              Read the system design
+            </Link>
+            {profile.links.map((l) => (
+              <a key={l.url} href={l.url} className="text-stone-500 hover:text-stone-900">
+                {l.label} ↗
+              </a>
+            ))}
+          </div>
         </div>
+        {profile.metrics && (
+          <dl className="space-y-6 border-l border-stone-300 pl-8">
+            {profile.metrics.map((m) => (
+              <div key={m.value}>
+                <dt className="font-serif text-3xl text-stone-900">{m.value}</dt>
+                <dd className="mt-1 text-sm text-stone-500">{m.label}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
       </section>
 
-      <section>
-        <h2 className="text-2xl font-semibold tracking-tight">Experience</h2>
-        <ol className="mt-6 space-y-8 border-l border-zinc-200 pl-6">
+      <Section title="Experience">
+        <ol className="space-y-14">
           {profile.roles.map((r) => (
             <li key={r.id}>
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="font-semibold">
-                  {r.title} <span className="font-normal text-zinc-500">· {r.org}</span>
-                </h3>
-                <span className="text-sm text-zinc-500">
-                  {r.start} to {r.end}
-                </span>
-              </div>
-              <p className="mt-1 text-sm text-zinc-600">{r.summary}</p>
+              <h3 className="font-serif text-2xl text-stone-900">
+                {r.title}, <span className="italic">{r.org}</span>
+              </h3>
+              <p className="mt-1 text-xs uppercase tracking-[0.15em] text-stone-500">
+                {r.start} — {r.end}
+              </p>
+              <p className="mt-4 font-serif text-lg italic leading-relaxed text-stone-600">{r.summary}</p>
               <Highlights items={r.highlights} />
             </li>
           ))}
         </ol>
-      </section>
+      </Section>
 
-      <section>
-        <h2 className="text-2xl font-semibold tracking-tight">Projects</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {profile.projects.map((p) => (
-            <article key={p.id} className="rounded-lg border border-zinc-200 bg-white p-5">
-              <h3 className="font-semibold">
-                {p.url ? <Link href={p.url} className="hover:text-indigo-600">{p.name}</Link> : p.name}
-              </h3>
-              <p className="mt-1 text-sm text-zinc-600">{p.summary}</p>
-              <Highlights items={p.highlights} />
-            </article>
-          ))}
-        </div>
-      </section>
+      <Section title="Projects">
+        {profile.projects.map((p) => (
+          <article key={p.id}>
+            <h3 className="font-serif text-2xl text-stone-900">
+              {p.url ? (
+                <Link href={p.url} className="hover:text-[#b4532a]">
+                  {p.name}
+                </Link>
+              ) : (
+                p.name
+              )}
+            </h3>
+            <p className="mt-3 font-serif text-lg italic text-stone-600">{p.summary}</p>
+            <Highlights items={p.highlights} />
+          </article>
+        ))}
+      </Section>
 
       {profile.education && (
-        <section className="grid gap-8 md:grid-cols-2">
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight">Education</h2>
-            <ul className="mt-4 space-y-3">
+        <Section title="Education">
+          <div className="grid gap-10 md:grid-cols-2">
+            <ul className="space-y-5">
               {profile.education.map((e) => (
                 <li key={e.school}>
-                  <p className="font-medium">{e.degree}</p>
-                  <p className="text-sm text-zinc-500">{e.school} · {e.years}</p>
+                  <p className="font-serif text-xl text-stone-900">{e.degree}</p>
+                  <p className="mt-1 text-sm text-stone-500">
+                    {e.school} · {e.years}
+                  </p>
                 </li>
               ))}
             </ul>
+            <div>
+              <p className="text-xs uppercase tracking-[0.15em] text-stone-500">Certifications</p>
+              <ul className="mt-3 space-y-1.5 text-stone-700">
+                {profile.certifications?.map((c) => <li key={c}>{c}</li>)}
+              </ul>
+              {profile.languages && (
+                <>
+                  <p className="mt-6 text-xs uppercase tracking-[0.15em] text-stone-500">Languages</p>
+                  <p className="mt-2 text-stone-700">{profile.languages.join(" · ")}</p>
+                </>
+              )}
+            </div>
           </div>
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight">Certifications</h2>
-            <ul className="mt-4 list-disc space-y-1 pl-5 text-sm text-zinc-700">
-              {profile.certifications?.map((c) => <li key={c}>{c}</li>)}
-            </ul>
-            {profile.languages && (
-              <p className="mt-4 text-sm text-zinc-600">Languages: {profile.languages.join(", ")}</p>
-            )}
-          </div>
-        </section>
+        </Section>
       )}
 
-      <section>
-        <h2 className="text-2xl font-semibold tracking-tight">Skills</h2>
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
+      <Section title="Skills">
+        <div className="grid gap-8 md:grid-cols-3">
           {(["expert", "strong", "working"] as const).map((lvl) => (
             <div key={lvl}>
-              <h3 className="text-sm font-medium capitalize text-zinc-500">{lvl}</h3>
-              <ul className="mt-2 flex flex-wrap gap-2">
+              <p className="text-xs uppercase tracking-[0.15em] text-[#b4532a]">{lvl}</p>
+              <ul className="mt-3 space-y-1.5 text-stone-700">
                 {byLevel(lvl).map((s) => (
-                  <li key={s.id} className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-sm">
-                    {SKILL_LABEL[s.id] ?? s.id}
-                  </li>
+                  <li key={s.id}>{SKILL_LABEL[s.id] ?? s.id}</li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

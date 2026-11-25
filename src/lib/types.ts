@@ -7,6 +7,8 @@ export type SkillId = string;
 export interface Profile {
   name: string;
   headline: string;
+  tagline?: string;
+  metrics?: { value: string; label: string }[];
   location: string;
   summary: string;
   links: { label: string; url: string }[];

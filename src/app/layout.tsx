@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { PlaceholderBanner } from "@/components/PlaceholderBanner";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const newsreader = Newsreader({ variable: "--font-newsreader", subsets: ["latin"], style: ["normal", "italic"] });
 
 export const metadata: Metadata = {
   title: "Tina · AI Researcher and Forward Deployed Engineer",
@@ -15,13 +16,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-zinc-50 text-zinc-900">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-[#faf7f2] text-stone-800">
         <PlaceholderBanner />
         <Nav />
-        <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12">{children}</main>
-        <footer className="border-t border-zinc-200 py-6 text-center text-xs text-zinc-500">
-          Built with Next.js and TypeScript · Deployed on Vercel via GitHub Actions CI
+        <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-16">{children}</main>
+        <footer className="mx-auto w-full max-w-5xl px-6 pb-10">
+          <p className="border-t border-stone-200 pt-8 text-xs text-stone-500">
+            Built with Next.js and TypeScript · Deployed on Vercel via GitHub Actions CI
+          </p>
         </footer>
       </body>
     </html>
