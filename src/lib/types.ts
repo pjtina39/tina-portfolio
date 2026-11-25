@@ -11,6 +11,8 @@ export interface Profile {
   intro?: string;
   metrics?: { value: string; to?: string; label: string }[];
   journey?: { year: string; title: string; text: string }[];
+  featured?: { title: string; blurb: string; tags: string[]; url?: string }[];
+  toolkit?: string[];
   location: string;
   summary: string;
   links: { label: string; url: string }[];

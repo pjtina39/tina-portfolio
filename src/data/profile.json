@@ -28,39 +28,85 @@
   "journey": [
     {
       "year": "2015",
-      "title": "BSc Mathematics, UCL",
-      "text": "The foundation: statistics, proof and a habit of asking how we know something is true."
+      "title": "Mathematics, UCL",
+      "text": "Maths degree, UCL."
     },
     {
       "year": "2017",
       "title": "Business Executive",
-      "text": "Built an overseas operations team from scratch and closed partnerships worth £700k in letters of intent."
+      "text": "Built an overseas operations team."
     },
     {
       "year": "2019",
-      "title": "Product & growth analytics",
-      "text": "At a London startup: SQL dashboards, user personas and A/B tests that doubled organic traffic in a month."
+      "title": "Product analytics",
+      "text": "Product and growth analytics at a startup."
     },
     {
       "year": "2022",
-      "title": "Technical Product Analyst",
-      "text": "Joined Signal AI in operations. Ran entity training for enterprise clients and led a supplier transition that cut costs 28% and lifted quality 18%."
+      "title": "Product Analyst",
+      "text": "Ran AI data operations for enterprise clients."
     },
     {
       "year": "2023",
       "title": "Self-taught engineer",
-      "text": "Learned dbt, Git and Python on the job and shipped reviewed changes to production data models."
+      "text": "Taught myself dbt, Git and Python."
     },
     {
       "year": "2025",
       "title": "Associate AI Researcher",
-      "text": "Built and evaluated LLM pipelines in production: entity resolution at 94–97% agreement, research costs down 97%."
+      "text": "Building and evaluating LLM pipelines in production."
     },
     {
       "year": "Next",
       "title": "Forward Deployed Engineer",
-      "text": "Taking it to clients: sitting with the people who do the work, then designing, building and deploying the AI that changes it."
+      "text": "Taking AI to where the work happens."
     }
+  ],
+  "featured": [
+    {
+      "title": "Entity resolution with LLMs",
+      "blurb": "Matches client company lists to a database at 94–97% human agreement. Days of manual work, now minutes.",
+      "tags": [
+        "LLMs",
+        "Evaluation",
+        "Pipelines"
+      ]
+    },
+    {
+      "title": "Research agents",
+      "blurb": "Web-search LLM workflows that research entities and find trigger words. 97% cheaper, hours to minutes.",
+      "tags": [
+        "Agents",
+        "Automation"
+      ]
+    },
+    {
+      "title": "Model evaluation at scale",
+      "blurb": "Reproducible benchmarks on AWS Bedrock that picked the production LLM and found 25% cost savings.",
+      "tags": [
+        "Benchmarking",
+        "AWS"
+      ]
+    },
+    {
+      "title": "This site",
+      "blurb": "Portfolio and job-match engine on one knowledge base, shipped with CI/CD on Vercel.",
+      "tags": [
+        "Next.js",
+        "System design"
+      ],
+      "url": "/architecture"
+    }
+  ],
+  "toolkit": [
+    "Python",
+    "SQL",
+    "dbt",
+    "LLMs",
+    "RAG",
+    "Evaluation",
+    "AWS Bedrock",
+    "Next.js"
   ],
   "links": [
     {

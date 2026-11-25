@@ -1,7 +1,6 @@
 import Link from "next/link";
 import profileJson from "@/data/profile.json";
-import { SKILL_LABEL } from "@/lib/taxonomy";
-import type { Highlight, Profile } from "@/lib/types";
+import type { Profile } from "@/lib/types";
 import { HeroVisual } from "@/components/HeroVisual";
 import { Journey } from "@/components/Journey";
 import { MatchPreview } from "@/components/MatchPreview";
@@ -20,23 +19,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-function Highlights({ items }: { items: Highlight[] }) {
-  return (
-    <ul className="mt-5 space-y-4">
-      {items.map((h) => (
-        <li key={h.text}>
-          <p className="leading-relaxed text-slate-700">{h.text}</p>
-          <p className="mt-1 text-[11px] uppercase tracking-[0.12em] text-slate-500">
-            {h.skills.map((s) => SKILL_LABEL[s] ?? s).join(" · ")}
-          </p>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 export default function Home() {
-  const byLevel = (lvl: string) => profile.skills.filter((s) => s.level === lvl);
   return (
     <div className="space-y-28">
       <section className="grid items-center gap-10 md:grid-cols-[1.25fr_1fr]">
@@ -95,7 +78,7 @@ export default function Home() {
           <section>
             <p className="text-xs uppercase tracking-[0.25em] text-[#8a5a24]">The journey</p>
             <h2 className="mt-3 font-serif text-4xl text-[#1b2a4a]">
-              I&apos;ve been the operator, the analyst <em className="text-[#8a5a24]">and</em> the engineer.
+              Operator, analyst, <em className="text-[#8a5a24]">engineer</em>.
             </h2>
             <div className="mt-12">
               <Journey steps={profile.journey} />
@@ -107,89 +90,66 @@ export default function Home() {
       <Reveal>
         <section>
           <p className="text-xs uppercase tracking-[0.25em] text-[#8a5a24]">Built for this interview</p>
-          <h2 className="mt-3 mb-10 font-serif text-4xl text-[#1b2a4a]">How well do I fit a role? Ask the system.</h2>
+          <h2 className="mt-3 mb-10 font-serif text-4xl text-[#1b2a4a]">Do I fit your role? Ask the system.</h2>
           <MatchPreview />
         </section>
       </Reveal>
 
-      <Section title="Experience">
-        <ol className="space-y-14">
-          {profile.roles.map((r) => (
-            <li key={r.id}>
-              <h3 className="font-serif text-2xl text-[#1b2a4a]">
-                {r.title}, <span className="italic">{r.org}</span>
-              </h3>
-              <p className="mt-1 text-xs uppercase tracking-[0.15em] text-slate-500">
-                {r.start} — {r.end}
-              </p>
-              <p className="mt-4 font-serif text-lg italic leading-relaxed text-slate-600">{r.summary}</p>
-              <Highlights items={r.highlights} />
-            </li>
-          ))}
-        </ol>
-      </Section>
-
-      <Section title="Projects">
-        {profile.projects.map((p) => (
-          <article key={p.id}>
-            <h3 className="font-serif text-2xl text-[#1b2a4a]">
-              {p.url ? (
-                <Link href={p.url} className="hover:text-[#8a5a24]">
-                  {p.name}
+      {profile.featured && (
+        <Section title="Selected work">
+          <div className="grid gap-5 md:grid-cols-2">
+            {profile.featured.map((w) => {
+              const card = (
+                <article className="h-full rounded-2xl border border-[#e6e1d6] bg-white p-7 transition duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_-12px_rgba(27,42,74,0.25)]">
+                  <h3 className="font-serif text-2xl text-[#1b2a4a]">{w.title}</h3>
+                  <p className="mt-3 leading-relaxed text-slate-600">{w.blurb}</p>
+                  <p className="mt-5 text-[11px] uppercase tracking-[0.15em] text-[#8a5a24]">{w.tags.join(" · ")}</p>
+                </article>
+              );
+              return w.url ? (
+                <Link key={w.title} href={w.url}>
+                  {card}
                 </Link>
               ) : (
-                p.name
-              )}
-            </h3>
-            <p className="mt-3 font-serif text-lg italic text-slate-600">{p.summary}</p>
-            <Highlights items={p.highlights} />
-          </article>
-        ))}
-      </Section>
-
-      {profile.education && (
-        <Section title="Education">
-          <div className="grid gap-10 md:grid-cols-2">
-            <ul className="space-y-5">
-              {profile.education.map((e) => (
-                <li key={e.school}>
-                  <p className="font-serif text-xl text-[#1b2a4a]">{e.degree}</p>
-                  <p className="mt-1 text-sm text-slate-500">
-                    {e.school} · {e.years}
-                  </p>
-                </li>
-              ))}
-            </ul>
-            <div>
-              <p className="text-xs uppercase tracking-[0.15em] text-slate-500">Certifications</p>
-              <ul className="mt-3 space-y-1.5 text-slate-700">
-                {profile.certifications?.map((c) => <li key={c}>{c}</li>)}
-              </ul>
-              {profile.languages && (
-                <>
-                  <p className="mt-6 text-xs uppercase tracking-[0.15em] text-slate-500">Languages</p>
-                  <p className="mt-2 text-slate-700">{profile.languages.join(" · ")}</p>
-                </>
-              )}
-            </div>
+                <div key={w.title}>{card}</div>
+              );
+            })}
           </div>
         </Section>
       )}
 
-      <Section title="Skills">
-        <div className="grid gap-8 md:grid-cols-3">
-          {(["expert", "strong", "working"] as const).map((lvl) => (
-            <div key={lvl}>
-              <p className="text-xs uppercase tracking-[0.15em] text-[#8a5a24]">{lvl}</p>
-              <ul className="mt-3 space-y-1.5 text-slate-700">
-                {byLevel(lvl).map((s) => (
-                  <li key={s.id}>{SKILL_LABEL[s.id] ?? s.id}</li>
-                ))}
-              </ul>
-            </div>
+      <Section title="Experience">
+        <ul className="divide-y divide-[#e6e1d6]">
+          {profile.roles.map((r) => (
+            <li key={r.id} className="grid gap-1 py-4 first:pt-0 md:grid-cols-[1fr_auto] md:items-baseline">
+              <p>
+                <span className="font-serif text-xl text-[#1b2a4a]">{r.title}</span>
+                <span className="text-slate-500"> · {r.org}</span>
+              </p>
+              <p className="text-sm text-slate-500">
+                {r.start} — {r.end}
+              </p>
+            </li>
           ))}
-        </div>
+        </ul>
+        {profile.education && (
+          <p className="mt-6 text-sm text-slate-500">
+            {profile.education.map((e) => `${e.degree}, ${e.school}`).join(" · ")}
+          </p>
+        )}
       </Section>
+
+      {profile.toolkit && (
+        <Section title="Toolkit">
+          <ul className="flex flex-wrap gap-2">
+            {profile.toolkit.map((t) => (
+              <li key={t} className="rounded-full border border-[#d6cfc0] px-4 py-1.5 text-sm text-slate-700">
+                {t}
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
     </div>
   );
 }
