@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div className="space-y-16">
       <section>
-        <p className="text-sm font-medium text-indigo-600">{profile.location}</p>
+        {profile.location && <p className="text-sm font-medium text-indigo-600">{profile.location}</p>}
         <h1 className="mt-2 text-4xl font-semibold tracking-tight">{profile.name}</h1>
         <p className="mt-2 text-xl text-zinc-600">{profile.headline}</p>
         <p className="mt-6 max-w-2xl leading-relaxed text-zinc-700">{profile.summary}</p>

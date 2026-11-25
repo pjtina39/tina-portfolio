@@ -1,24 +1,15 @@
 {
-  "placeholder": true,
   "name": "Tina",
-  "headline": "Applied AI Engineer · Retrieval, ranking and evaluation",
-  "location": "[City, Country]",
-  "summary": "[PLACEHOLDER] I build applied AI systems end to end: from understanding the client's operational problem to shipping retrieval, classification and ranking models that are measured, explainable and trusted. My path runs from concept operations to AI research, so I speak both the business and the model language.",
+  "headline": "AI Researcher → Forward Deployed Engineer · LLM pipelines, retrieval and evaluation",
+  "location": "",
+  "summary": "I started in operations, training entity models for enterprise clients, taught myself analytics engineering, and moved into AI research, where I built LLM pipelines that replaced days of manual work with minutes of automated, measured output. I've been the operator who did the work by hand, so I build AI for how the work is actually done, and I prove it with numbers the business cares about.",
   "links": [
     {
       "label": "GitHub",
       "url": "https://github.com/pjtina39"
-    },
-    {
-      "label": "LinkedIn",
-      "url": "https://www.linkedin.com/"
     }
   ],
   "skills": [
-    {
-      "id": "python",
-      "level": "expert"
-    },
     {
       "id": "llm",
       "level": "expert"
@@ -28,43 +19,43 @@
       "level": "expert"
     },
     {
-      "id": "rag",
-      "level": "strong"
-    },
-    {
-      "id": "classification",
-      "level": "expert"
-    },
-    {
-      "id": "ranking",
-      "level": "strong"
-    },
-    {
       "id": "evaluation",
       "level": "expert"
+    },
+    {
+      "id": "operations",
+      "level": "expert"
+    },
+    {
+      "id": "client-facing",
+      "level": "expert"
+    },
+    {
+      "id": "python",
+      "level": "strong"
+    },
+    {
+      "id": "sql",
+      "level": "strong"
+    },
+    {
+      "id": "data-pipelines",
+      "level": "strong"
+    },
+    {
+      "id": "rag",
+      "level": "strong"
     },
     {
       "id": "nlp",
       "level": "strong"
     },
     {
-      "id": "ml",
+      "id": "classification",
       "level": "strong"
-    },
-    {
-      "id": "embeddings",
-      "level": "strong"
-    },
-    {
-      "id": "sql",
-      "level": "working"
     },
     {
       "id": "data-analysis",
-      "level": "strong"
-    },
-    {
-      "id": "client-facing",
       "level": "strong"
     },
     {
@@ -72,11 +63,15 @@
       "level": "strong"
     },
     {
-      "id": "operations",
+      "id": "product",
       "level": "strong"
     },
     {
-      "id": "product",
+      "id": "ml",
+      "level": "working"
+    },
+    {
+      "id": "ranking",
       "level": "working"
     },
     {
@@ -103,92 +98,112 @@
   "roles": [
     {
       "id": "ai-researcher",
-      "title": "AI Researcher",
-      "org": "[Company]",
-      "start": "[YYYY]",
-      "end": "Present",
-      "summary": "[PLACEHOLDER] Applied research on LLM-based classification and tagging for client-facing products.",
+      "title": "AI Researcher, Retrieval Engine",
+      "org": "Signal AI",
+      "start": "Mar 2025",
+      "end": "2026",
+      "summary": "Moved from operations into the AI Research team to build LLM pipelines for entity alignment and retrieval.",
       "highlights": [
         {
-          "text": "[PLACEHOLDER] Designed an LLM classification pipeline for client data, cutting manual review time by [X]% while keeping precision above [Y]%.",
+          "text": "Built an LLM entity-alignment pipeline that replaced a manual process taking 6.5 days per 1,000 entities: it now aligns 5,000 entities in under 30 minutes at about $0.0005 per entity.",
           "skills": [
             "llm",
-            "classification",
-            "nlp",
-            "client-facing"
-          ]
-        },
-        {
-          "text": "[PLACEHOLDER] Built a prompt refinement loop where disagreement signals flag cases for review and each prompt change is gated on an evaluation set.",
-          "skills": [
             "prompting",
-            "evaluation",
-            "llm",
+            "nlp",
+            "data-pipelines",
+            "python",
             "operations"
           ]
         },
         {
-          "text": "[PLACEHOLDER] Translated client requirements into structured search and tagging set-ups, agreeing with client teams on what 'relevant' means.",
+          "text": "Evaluated the pipeline against an external expert-labelling vendor's labels and reached 94.5% to 97% agreement.",
           "skills": [
-            "rag",
-            "client-facing",
-            "product",
-            "communication"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "applied-ml",
-      "title": "[Applied ML / Data Scientist]",
-      "org": "[Company]",
-      "start": "[YYYY]",
-      "end": "[YYYY]",
-      "summary": "[PLACEHOLDER] Retrieval and ranking models for search and recommendation.",
-      "highlights": [
-        {
-          "text": "[PLACEHOLDER] Shipped an embedding-based retrieval and re-ranking service that improved top-5 relevance by [X]% on an offline benchmark.",
-          "skills": [
-            "rag",
-            "embeddings",
-            "ranking",
             "evaluation",
-            "python"
+            "classification",
+            "llm"
           ]
         },
         {
-          "text": "[PLACEHOLDER] Built Python and SQL data pipelines feeding model training and weekly performance dashboards.",
+          "text": "Automated entity trigger-word generation, cutting the work from 1,350 hours to 3.7 hours a month and the cost from about £6k to under $2 a month.",
           "skills": [
-            "python",
-            "sql",
+            "llm",
+            "operations",
             "data-pipelines",
-            "data-analysis"
+            "agents"
+          ]
+        },
+        {
+          "text": "Demoed both pipelines to product, engineering and operations stakeholders.",
+          "skills": [
+            "communication",
+            "client-facing",
+            "product"
+          ]
+        },
+        {
+          "text": "Took part in real-world evaluation of the next-generation entity retrieval technology, a contribution recognised by the Retrieval Engine team.",
+          "skills": [
+            "rag",
+            "evaluation"
           ]
         }
       ]
     },
     {
       "id": "concept-ops",
-      "title": "[Concept Operations]",
-      "org": "[Company]",
-      "start": "[YYYY]",
-      "end": "[YYYY]",
-      "summary": "[PLACEHOLDER] Took new concepts from idea to running operation.",
+      "title": "Technical Product Analyst, Concept Operations",
+      "org": "Signal AI",
+      "start": "Jan 2022",
+      "end": "Feb 2025",
+      "summary": "Owned entity training for enterprise clients and taught myself analytics engineering along the way.",
       "highlights": [
         {
-          "text": "[PLACEHOLDER] Ran operations for [N] new concepts, redesigning workflows with stakeholders and automating reporting.",
+          "text": "Led entity training for a major enterprise client: 3,266 entities in scope, 2,155 trained, 47.9% more trained during the prioritisation period and 4,248 entities through the bulk entity-creation pipeline.",
           "skills": [
-            "operations",
             "client-facing",
-            "data-analysis"
+            "operations",
+            "nlp",
+            "product"
           ]
         },
         {
-          "text": "[PLACEHOLDER] Presented performance insights to senior leadership to decide which concepts to scale.",
+          "text": "Ran bulk entity requests for enterprise clients and wrote the training-process overview, vendor alignment instructions, entity tracker and bulk-request templates; several were still in use three years later.",
           "skills": [
-            "communication",
-            "data-analysis",
+            "operations",
+            "client-facing",
+            "communication"
+          ]
+        },
+        {
+          "text": "Taught myself dbt, Git and SQL, then shipped reviewed changes to the company's dbt analytics models (Salesforce cases, concepts and Jira issues).",
+          "skills": [
+            "sql",
+            "data-pipelines",
+            "cicd"
+          ]
+        },
+        {
+          "text": "Set up a parallel Jira workflow to migrate topic labelling to a new external labelling provider without disrupting delivery.",
+          "skills": [
+            "operations",
             "product"
+          ]
+        },
+        {
+          "text": "Built the cost analysis for the Entities 2.0 programme for leadership, and proposed time-in-status tracking for social-author operations.",
+          "skills": [
+            "data-analysis",
+            "communication",
+            "product"
+          ]
+        },
+        {
+          "text": "Worked on a LightGBM churn-prediction model and fixed the Salesforce churn fields it depended on.",
+          "skills": [
+            "ml",
+            "python",
+            "classification",
+            "data-analysis"
           ]
         }
       ]
