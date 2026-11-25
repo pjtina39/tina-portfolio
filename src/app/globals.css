@@ -41,7 +41,33 @@ body {
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
 .reveal.is-visible { opacity: 1; transform: none; }
 
+/* Score preview: CSS-only count-up and ring fill */
+@property --n {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+@keyframes count-up {
+  from { --n: 0; }
+  to { --n: var(--score); }
+}
+.score-count {
+  --n: var(--score);
+  counter-reset: n var(--n);
+  animation: count-up 1.4s cubic-bezier(.2,.7,.2,1) both;
+}
+.score-count::after { content: counter(n); }
+@keyframes ring-fill {
+  from { stroke-dashoffset: var(--ring-from); }
+  to { stroke-dashoffset: var(--ring-to); }
+}
+.score-ring {
+  stroke-dashoffset: var(--ring-to);
+  animation: ring-fill 1.4s cubic-bezier(.2,.7,.2,1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .score-count, .score-ring { animation: none; }
   .flow, .drift, .pulse, .hero-in > * { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
