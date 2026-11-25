@@ -1,0 +1,236 @@
+{
+  "placeholder": true,
+  "name": "Tina",
+  "headline": "Applied AI Engineer · Retrieval, ranking and evaluation",
+  "location": "[City, Country]",
+  "summary": "[PLACEHOLDER] I build applied AI systems end to end: from understanding the client's operational problem to shipping retrieval, classification and ranking models that are measured, explainable and trusted. My path runs from concept operations to AI research, so I speak both the business and the model language.",
+  "links": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/pjtina39"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/"
+    }
+  ],
+  "skills": [
+    {
+      "id": "python",
+      "level": "expert"
+    },
+    {
+      "id": "llm",
+      "level": "expert"
+    },
+    {
+      "id": "prompting",
+      "level": "expert"
+    },
+    {
+      "id": "rag",
+      "level": "strong"
+    },
+    {
+      "id": "classification",
+      "level": "expert"
+    },
+    {
+      "id": "ranking",
+      "level": "strong"
+    },
+    {
+      "id": "evaluation",
+      "level": "expert"
+    },
+    {
+      "id": "nlp",
+      "level": "strong"
+    },
+    {
+      "id": "ml",
+      "level": "strong"
+    },
+    {
+      "id": "embeddings",
+      "level": "strong"
+    },
+    {
+      "id": "sql",
+      "level": "working"
+    },
+    {
+      "id": "data-analysis",
+      "level": "strong"
+    },
+    {
+      "id": "client-facing",
+      "level": "strong"
+    },
+    {
+      "id": "communication",
+      "level": "strong"
+    },
+    {
+      "id": "operations",
+      "level": "strong"
+    },
+    {
+      "id": "product",
+      "level": "working"
+    },
+    {
+      "id": "typescript",
+      "level": "working"
+    },
+    {
+      "id": "react",
+      "level": "working"
+    },
+    {
+      "id": "cicd",
+      "level": "working"
+    },
+    {
+      "id": "system-design",
+      "level": "working"
+    },
+    {
+      "id": "agents",
+      "level": "working"
+    }
+  ],
+  "roles": [
+    {
+      "id": "ai-researcher",
+      "title": "AI Researcher",
+      "org": "[Company]",
+      "start": "[YYYY]",
+      "end": "Present",
+      "summary": "[PLACEHOLDER] Applied research on LLM-based classification and tagging for client-facing products.",
+      "highlights": [
+        {
+          "text": "[PLACEHOLDER] Designed an LLM classification pipeline for client data, cutting manual review time by [X]% while keeping precision above [Y]%.",
+          "skills": [
+            "llm",
+            "classification",
+            "nlp",
+            "client-facing"
+          ]
+        },
+        {
+          "text": "[PLACEHOLDER] Built a prompt refinement loop where disagreement signals flag cases for review and each prompt change is gated on an evaluation set.",
+          "skills": [
+            "prompting",
+            "evaluation",
+            "llm",
+            "operations"
+          ]
+        },
+        {
+          "text": "[PLACEHOLDER] Translated client requirements into structured search and tagging set-ups, agreeing with client teams on what 'relevant' means.",
+          "skills": [
+            "rag",
+            "client-facing",
+            "product",
+            "communication"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "applied-ml",
+      "title": "[Applied ML / Data Scientist]",
+      "org": "[Company]",
+      "start": "[YYYY]",
+      "end": "[YYYY]",
+      "summary": "[PLACEHOLDER] Retrieval and ranking models for search and recommendation.",
+      "highlights": [
+        {
+          "text": "[PLACEHOLDER] Shipped an embedding-based retrieval and re-ranking service that improved top-5 relevance by [X]% on an offline benchmark.",
+          "skills": [
+            "rag",
+            "embeddings",
+            "ranking",
+            "evaluation",
+            "python"
+          ]
+        },
+        {
+          "text": "[PLACEHOLDER] Built Python and SQL data pipelines feeding model training and weekly performance dashboards.",
+          "skills": [
+            "python",
+            "sql",
+            "data-pipelines",
+            "data-analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concept-ops",
+      "title": "[Concept Operations]",
+      "org": "[Company]",
+      "start": "[YYYY]",
+      "end": "[YYYY]",
+      "summary": "[PLACEHOLDER] Took new concepts from idea to running operation.",
+      "highlights": [
+        {
+          "text": "[PLACEHOLDER] Ran operations for [N] new concepts, redesigning workflows with stakeholders and automating reporting.",
+          "skills": [
+            "operations",
+            "client-facing",
+            "data-analysis"
+          ]
+        },
+        {
+          "text": "[PLACEHOLDER] Presented performance insights to senior leadership to decide which concepts to scale.",
+          "skills": [
+            "communication",
+            "data-analysis",
+            "product"
+          ]
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "career-platform",
+      "name": "Career Intelligence Platform (this site)",
+      "summary": "A shared career knowledge base that powers both this portfolio and an AI job-match engine, deployed with CI/CD on Vercel.",
+      "url": "/architecture",
+      "highlights": [
+        {
+          "text": "Designed a modular system: one structured knowledge base feeds a public portfolio and a matching API, with private data kept out of the public repo.",
+          "skills": [
+            "system-design",
+            "product",
+            "security"
+          ]
+        },
+        {
+          "text": "Built the site and a serverless match API in Next.js and TypeScript, deployed on Vercel with GitHub Actions running lint, type checks, tests and a build on every pull request.",
+          "skills": [
+            "typescript",
+            "react",
+            "apis",
+            "cicd",
+            "full-stack",
+            "cloud"
+          ]
+        },
+        {
+          "text": "Implemented explainable job matching: requirement extraction, evidence retrieval and weighted scoring, with a yes/no labelling loop to collect training data for a future classifier.",
+          "skills": [
+            "rag",
+            "ranking",
+            "classification",
+            "evaluation",
+            "agents"
+          ]
+        }
+      ]
+    }
+  ]
+}

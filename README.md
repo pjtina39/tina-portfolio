@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Career Intelligence Platform
 
-## Getting Started
+A personal portfolio and an explainable AI job-match engine, both powered by one
+structured career knowledge base.
 
-First, run the development server:
+- **Portfolio** (`/`): experience, projects and skills, rendered from `src/data/profile.json`.
+- **Job match demo** (`/match`): paste a job ad, get a 0–100 fit score with evidence for every requirement.
+- **System design** (`/architecture`): architecture, CI/CD flow, design decisions and roadmap.
+
+## Architecture in one paragraph
+
+`profile.json` (roles, projects, skills, and *highlights* tagged with the skills they prove)
+is bundled at build time. Portfolio pages are prerendered and served from Vercel's CDN.
+`POST /api/match` is a serverless function that runs `src/lib/matcher.ts`:
+extract requirements from the ad (must vs nice-to-have) → retrieve tagged evidence →
+grade each skill (evidenced / claimed / missing) → weighted score. The matcher is pure
+TypeScript with no network calls, so it is deterministic and unit-tested in CI.
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev          # http://localhost:3000
+npm test             # unit tests for the match engine
+npm run lint && npm run typecheck && npm run build   # same checks as CI
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Edit your profile
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Everything personal is in `src/data/profile.json`. Each highlight lists the skill ids it
+proves (ids are in `src/lib/taxonomy.ts`). Remove `"placeholder": true` once the content
+is real, and the draft banner disappears.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Only public content goes in this file.** Private CVs, salary notes and application
+history belong in `/private/` (git-ignored) or, later, a private database.
 
-## Learn More
+## API
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+curl -X POST https://<your-site>/api/match \
+  -H 'Content-Type: application/json' \
+  -d '{"jobAd": "Requirements\nPython, LLMs, CI/CD"}'
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Returns `{ score, verdict, summary, matches[{skill, priority, strength, evidence[]}], gaps[] }`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [docs/DEPLOY.md](docs/DEPLOY.md).
